@@ -1,0 +1,28 @@
+<h3>Historique des mouvements</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <td scope="col">Horodatage</td>
+      <td scope="col">Type</td>
+      <td scope="col">De</td>
+      <td scope="col">Vers</td>
+      <td scope="col">Reference</td>
+      <td scope="col">Quantité</td>
+      <td scope="col">Poids</td>
+      <td scope="col">Status douanier</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let mvt of mvts">
+      <td>{{mvt.date_creationmvt}}</td>
+      <td>{{mvt.type}}</td>
+      <td>{{mvt.magasin_origine}}</td>
+      <td>{{mvt.magasin_destination}}</td>
+      <td>{{mvt.type_reference}} &nbsp; {{ mvt.reference}}</td>
+      <td>{{mvt.quant}}</td>
+      <td>{{mvt.poids}}</td>
+      <td>{{mvt.status_douanier}}</td>
+
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,47 @@
+<h3>
+  Déclarer une Sortie
+</h3>
+<form #srtForm= "ngForm" (submit)="Submit_srt(srtForm.value)">
+  Magasin destination <select name="magasin_destination" ngModel>
+    <option value="ComboBox">ComboBox</option>
+    <option value="NV1">NV1</option>
+    <option value="SL2">SL2</option>
+    <option value="Dupoint">Dupoint</option>
+  </select> <input type="text" name="code_magasindestination" placeholder="code magasin d'origine" ngModel> 
+  statut Douanier <select name="status_douanier" ngModel>
+    <option value="T1">T1</option>
+    <option value="T2">T2</option>
+    <option value="Tf">Tf</option>
+    <option value="T2l">T2</option>
+  </select>
+  <br>
+  Référence <select name="type_reference" ngModel>
+    <option value="AWB">AWB</option>
+    <option value="LTA">LTA</option>
+  </select> <input type="text" name="reference" placeholder="Référence" ngModel> 
+  <br>
+  <span id="err-ref" style="color: red"></span>
+  <br>
+  Apurement <select name="type_docdouanier" ngModel>
+    <option value="T1">T1</option>
+    <option value="T2">T2</option>
+    <option value="Tf">Tf</option>
+    <option value="T2l">T2</option>
+  </select> <input type="text" name="ref_docdouanier" placeholder="Référence document douanier" ngModel>
+  <br> 
+  Nature de la marchandise <input type="text" name="description" ngModel>
+  <br>
+  Quantité <input type="text" name="quant" ngModel> 
+  Poids <input type="text" name="poids" ngModel>
+  <br>
+  <span id="err-poids" style="color: red"></span>
+  <br>
+  Quantité totale <input type="text" name="quant_tot" ngModel>
+  Poids total <input type="text" name="poids_tot" ngModel>
+  <br>
+  <span id="err-quant" style="color: red"></span>
+  <br>
+  Date du mouvement <input type="date"  name="date_mvt" ngModel>
+  <button type="submit" class="btn btn-primary">Envoyer</button>
+  <button class="btn btn-danger">Annuler</button>
+</form>
