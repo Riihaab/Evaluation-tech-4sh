@@ -29,6 +29,17 @@ exports.getMouvements = async function(query, page, limit){
 }
 
 exports.createMouvement = async function(mvt){
+ 
+  //  if (mvt.type=="sortie"){
+        
+        //var check = Mvt.findOne({'reference': mvt.reference});
+        
+       // if(check){
+            
+
+          //  throw Error(" sortie invalide");
+       // }
+   // }
    
     // Creating a new Mongoose Object by using the new keyword
 
@@ -53,17 +64,20 @@ exports.createMouvement = async function(mvt){
     })
 
     try{
-
         
 
-        var savedMvt = await newMvt.save()
+    var savedMvt = await newMvt.save();
 
-        return savedMvt;
+    return savedMvt; 
+
     }catch(e){
       
-        // return a Error message describing the reason     
+         //return a Error message describing the reason     
 
         throw Error("Error while Creating mouvement")
     }
+   
+
+  
 }
 

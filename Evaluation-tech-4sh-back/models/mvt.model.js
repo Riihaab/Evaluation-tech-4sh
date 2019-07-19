@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var mongoosePaginate = require('mongoose-paginate');
+
 var MvtSchema = new mongoose.Schema({
     type: String,
     description: String,

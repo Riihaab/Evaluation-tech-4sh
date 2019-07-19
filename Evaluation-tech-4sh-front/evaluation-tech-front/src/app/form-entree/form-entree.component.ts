@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Http, Response} from '@angular/http';
+import { Communication } from '../Communication';
 
 
 @Component({
@@ -9,18 +10,18 @@ import {Http, Response} from '@angular/http';
 })
 export class FormEntreeComponent implements OnInit {
 private url ="http://localhost:3000/api/mouvements"
-  constructor(private http:Http) { }
+  constructor(private http:Http, private com:Communication) { }
 
   ngOnInit() {
   }
 Submit_ent(entr) {
   var ref = Number(entr.reference);
-   if (entr.quant_tot <entr.quant) {
+   if (entr.quant_tot<entr.quant&&entr.quant_tot!=0) {
      //displays error message if quantité > quantité totale
     document.getElementById('error-quant').innerHTML = " quantité totale doit être supérieure à quantité *";
   }
 
-  else if (entr.poids_tot <entr.poids){
+  else if (entr.poids_tot<entr.poids&&entr.poids_tot!=0){
     //displays error message if poids> poids total
     document.getElementById('error-poids').innerHTML = " poids total doit être supérieur à poids *";
  }
@@ -38,7 +39,9 @@ else if (entr.type_reference == "AWB"&&(entr.reference.length!=11||Number.isInte
   entr.magasin_destination = "NV1";
   entr.type = "entrée";
   entr.date_creationmvt= new Date();
-  this.http.post(this.url,entr).subscribe(response=>console.log(response));
+  this.http.post(this.url,entr).subscribe(response=>{console.log(response);
+  this.com.newMvtCom();
+  });
   }
 
 }

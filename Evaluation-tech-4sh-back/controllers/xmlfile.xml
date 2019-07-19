@@ -1,0 +1,20 @@
+<Message>
+  <CargoMessage type="sortie"/>
+  <Header from="RAPIDCARGO" to="CARGOINFO" messageTime="Fri Jul 19 2019 06:07:28 GMT+0100 (CET)"/>
+  <sortie/>
+  <declaredIn code="CDGR1" label="RapidCargo CDG">
+    <from label="NV1">
+      <goods>
+        <ref type="" code="">
+          <amount quantity="150">
+            <description>
+              
+              <totalRefAmount quantity="100"/>
+            </description>
+          </amount>
+        </ref>
+      </goods>
+    </from>
+  </declaredIn>
+  <customStatus/>
+</Message>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Http, Response} from '@angular/http';
+import { Communication } from '../Communication';
 
 @Component({
   selector: 'app-form-sortie',
@@ -9,7 +10,7 @@ import {Http, Response} from '@angular/http';
 export class FormSortieComponent implements OnInit {
   private url ="http://localhost:3000/api/mouvements"
 
-  constructor(private http:Http) { }
+  constructor(private http:Http, private com:Communication) { }
 
   ngOnInit() {
   }
@@ -17,13 +18,13 @@ export class FormSortieComponent implements OnInit {
 
     var ref = Number(srt.reference);
     
-    if (srt.quant_tot <srt.quant) {
+    if (srt.quant_tot<srt.quant&&srt.quant_tot!=0) {
       //ERROR message if quantité > quantité totale
 
       document.getElementById('err-quant').innerHTML = " quantité totale doit être supérieure à quantité *";
     }
   
-    else if (srt.poids_tot <srt.poids){
+    else if (srt.poids_tot<srt.poids&&srt.poids_tot!=0){
 //error message if poids> poids total
       document.getElementById('err-poids').innerHTML = " poids total doit être supérieur à poids *";
    }
@@ -41,7 +42,8 @@ export class FormSortieComponent implements OnInit {
     srt.magasin_origine = "NV1";
     srt.type = "sortie";
     srt.date_creationmvt= new Date();
-    this.http.post(this.url,srt).subscribe(response=>console.log(response));
+    this.http.post(this.url,srt).subscribe(response=>{console.log(response);
+    this.com.newMvtCom();});
     }
   
   }

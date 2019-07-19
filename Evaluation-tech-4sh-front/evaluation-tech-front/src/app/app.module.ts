@@ -6,6 +6,7 @@ import { FormSortieComponent } from './form-sortie/form-sortie.component';
 import { FormEntreeComponent } from './form-entree/form-entree.component';
 import { TableHistoriqueComponent } from './table-historique/table-historique.component';
 import { HttpModule } from '@angular/http';
+import { Communication } from './Communication';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,7 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [Communication],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

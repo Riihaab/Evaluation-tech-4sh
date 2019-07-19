@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Communication } from '../Communication';
 
 @Component({
   selector: 'app-table-historique',
@@ -10,7 +11,7 @@ export class TableHistoriqueComponent implements OnInit {
   private url ="http://localhost:3000/api/mouvements";
   mvts = [];
 
-  constructor( private http:Http) { }
+  constructor( private http:Http, private com:Communication) { }
 
   ngOnInit() {
 // gets data from the url above and assign it to the mvts array in json format
